@@ -1,8 +1,36 @@
 {% extends 'orderup/index.html' %}
     {% block content %}
     <div class="order">
+        <a href="{% url 'orderup_home' %}" class="links">
+            <span class="material-symbols-outlined" id="back">
+                arrow_back_ios
+                </span> back                
+        </a>
         <h3>Order Summary:
             {{order.slug}}
         </h3>
+    </div>
+    <div class="box1">
+            <div class="box2">
+                <h1 class="rand"><strong>DIY</strong></h1>
+                <h2 class="name">{{order.customer}}</h2>
+                <h4 class="number">{{order.customer.phone}}</h4>
+                <h4 class="email">{{order.customer.email}}</h4>
+                <div class="billing">
+                    <h2 class="billing_text">BILLING ADDRESS</h2>
+                    <h4>{{order.customer.street}}</h4>
+                    <h4>{{order.customer.city}}, {{order.customer.state_code}}  {{order.customer.zip_code}}</h4>
+                </div>
+                <div class="orderbox">
+                        <div class="delivery">Delivery <span class="bracket"></span></div>
+                        <div class="info">
+                            FULFILLMENT TYPE
+                            <div class="type">{{order.delivery_type}}</div>
+                            <img src="{{order.item.image}}"/>
+                            
+                        </div>
+                </div>
+
+            </div>
     </div>
     {% endblock %}

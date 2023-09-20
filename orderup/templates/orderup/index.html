@@ -9,8 +9,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mooli&family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
     <link href="{% static "css/styles.css" %}?{% now "U" %}"  rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mooli&family=Roboto+Mono:wght@300&family=Roboto:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="shortcut icon" href="{% static 'css/logo/THD_logo.jpeg' %}" type="image/x-icon">
 </head>
 <body>
     <nav class="navbar">
@@ -24,14 +26,15 @@
     <div class="searchbar">
         <img class="logo" src="{% static 'css/logo/THD_logo.jpeg' %}"/>
         <span class="title">Order Up</span>
-        <form action="POST" class ="bar">
-            <input type="text" placeholder="Enter Order Number...">
+        <form class ="bar">
+            <input type="search" name= "q" placeholder="Enter Order Number...">
+            <button type="submit">
+                <span class="material-symbols-outlined">
+                search
+                </span>
+            </button>
         </form>
-        <button type="submit">
-            <span class="material-symbols-outlined">
-            search
-            </span>
-        </button>
+
         
     </div>
     {%block content%}
