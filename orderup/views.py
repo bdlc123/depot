@@ -8,6 +8,7 @@ def orderup_home(request):
     if "q" in request.GET:
         q = request.GET['q']
         order = Order.objects.get(Q(slug__icontains=q) | Q(customer__first_name__icontains=q) | Q(customer__last_name__icontains=q))
+        
         return render(request,'orderup/order_detail.html', {'order':order})
            
     customer = request.user

@@ -25,12 +25,18 @@
                         <div class="delivery">Delivery <span class="bracket"></span></div>
                         <div class="info">
                             FULFILLMENT TYPE
+                            
                             <div class="type">{{order.delivery_type}}</div>
-                            <img src="{{order.item.image}}"/>
+                            {% for items in order.item.all %}
+                            <div class="itemphotos">
+                                <img src="{{items.image}}" alt="dont work">{{items.item_name}}
+                            </div>
+                            {% endfor %}
+                            
                             
                         </div>
                 </div>
-
+                
             </div>
     </div>
     {% endblock %}
