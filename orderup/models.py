@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from phone_field import PhoneField
 from phonenumber_field.modelfields import PhoneNumberField
+from django.core.validators import MinValueValidator, MaxValueValidator
 import uuid
 
 
@@ -36,6 +37,9 @@ class Order(models.Model):
     item = models.ManyToManyField(Item)
     note = models.TextField()
     delivery_date = models.DateField(null=True, blank=True)
+    location = models.IntegerField(validators=[MinValueValidator(0),
+                                       MaxValueValidator(52)],null=True)
+    quantity = models.PositiveIntegerField(default=1)
 
     order_type = (
         ('Car', 'Car Delivery'),
@@ -54,6 +58,7 @@ class Order(models.Model):
 
     def __str__(self):
         return f'{self.slug}'
+    
 
 
 

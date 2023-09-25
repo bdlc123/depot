@@ -21,15 +21,43 @@
                     <h4>{{order.customer.street}}</h4>
                     <h4>{{order.customer.city}}, {{order.customer.state_code}}  {{order.customer.zip_code}}</h4>
                 </div>
-                <div class="orderbox">
-                        <div class="delivery">Delivery <span class="bracket"></span></div>
+                <div class="orderbox2">
+                    <div class="delivery">Delivery <span class="bracket"></span></div>
                         <div class="info">
                             FULFILLMENT TYPE
                             
                             <div class="type">{{order.delivery_type}}</div>
+                </div>
+                <div class="orderbox">
+                            <div class="headers">REGULAR PRODUCTS
+                                <span class="locationheader">LOCATION</span>
+                                <span class="priceheader">UNIT PRICE</span>
+                                <span class="quantity">QUANTITY</span>
+                            </div>
                             {% for items in order.item.all %}
                             <div class="itemphotos">
-                                <img src="{{items.image}}" alt="dont work">{{items.item_name}}
+                                
+                                <h4 class="SKU">SKU: {{items.SKU}}</h2>
+                                <img src="{{items.image}}" alt="dont work">
+                                <h3 class="item_name">{{items.item_name}}</h3>
+                        
+                                <select class="location">
+                                        
+                                    {% if order.location %}
+                                    <option Value="">sd-0{{order.location}}</option>
+                                    {% endif %}
+                                    {% for i in range%}
+                                    <option Value="">sd-0{{i}}</option>
+
+                                    {% endfor %}
+                                    
+                                    </select> 
+                                       
+                                     
+                                
+                                
+                                <span class="price">${{items.price}}/each</span>
+                                <span class="quant">{{order.quantity}}</span>
                             </div>
                             {% endfor %}
                             

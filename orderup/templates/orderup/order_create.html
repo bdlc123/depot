@@ -1,0 +1,20 @@
+{% extends 'orderup/index.html' %}
+    {% block content %}
+       <div class="formdiv">
+        {% if submitted %}
+            <div>
+                Thank you for submitting the order and shopping at the Home Depot
+                
+            </div>
+            <a href="{% url 'orderup_home' %}">Click here to go back Home</a>
+        {% else %}
+        <form action="" method=POST class="createform">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <input type="submit">
+        </form>
+        {% endif %}
+       </div>
+        
+    
+    {% endblock %}

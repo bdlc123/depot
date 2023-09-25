@@ -8,10 +8,10 @@ admin.site.register(Customer)
 class OrderAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
-            'fields': ('id','customer','item','slug')
+            'fields': ('id','customer','item','slug','delivery_date','quantity')
         }),
         ('Type of Order',{
-            'fields':('delivery_type','note')
+            'fields':('delivery_type','note','location')
         }),
     )
 
