@@ -8,20 +8,17 @@ def order_create(request):
     submitted = False
     if request.method == 'POST':
         form = OrderForm(request.POST)
-        form2 = ItemForm(request.POST)
-        if form.is_valid() and form2.is_valid():
+        if form.is_valid():
             order = form.save()
-            order2 = form2.save()
             numbers = order.slug
             return redirect('order_detail', slug=order.slug)
             #return HttpResponseRedirect('/create?submitted=True')
     else:
         form = OrderForm()
-        form2 = ItemForm()
         if 'submitted' in request.GET:
             submitted = True
     
-    return render(request, 'orderup/order_create.html',{'form':form,'form2':form2, 'submitted':submitted})
+    return render(request, 'orderup/order_create.html',{'form':form, 'submitted':submitted})
 
 def orderup_home(request):
     if "q" in request.GET:
@@ -38,4 +35,4 @@ def order_detail(request,slug):
     order = get_object_or_404(Order, slug=slug)
     
 
-    return render(request, 'orderup/order_detail.html',{'order':order, 'form':form})
+    return render(request, 'orderup/order_detail.html',{'order':order})
