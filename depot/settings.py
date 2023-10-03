@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "orderup",
     "phonenumber_field",
-    "phone_field"
+    "phone_field",
+    "associates",
 ]
 
 MIDDLEWARE = [

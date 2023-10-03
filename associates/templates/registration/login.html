@@ -4,15 +4,13 @@
         {% if submitted %}
             <div>
                 Thank you for submitting the order and shopping at the Home Depot
-                Your order number is {{order_num}}
-                To see your order, visit <a href="{% url 'orderup_home' %}">here</a>
+                
             </div>
             <a href="{% url 'orderup_home' %}">Click here to go back Home</a>
         {% else %}
         <form action="" method=POST class="createform">
             {% csrf_token %}
-            {{ form.as_p}}
-            {{ form2.as_p}}
+            
             <input type="submit">
         </form>
         {% endif %}
